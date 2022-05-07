@@ -7,12 +7,11 @@
   </nav>
 
   <h2>Popular movies</h2>
+
   <div>
-    <li v-for="movie of movies" :key="movie"> {{ movie }}</li>
-    <!-- 其實我係想搵以下h3個嗰目標，但係我唔知點樣指向h3嗰度 -->
+    <li v-for="movie of movies" :key="movie.hihhi"> {{movie.title}} {{movie.poster_path}} </li>
   </div>
 
-  <h3>{{movies.results[0].original_title}}</h3>
 
 </template>
 
@@ -27,22 +26,21 @@ export default {
   name: 'App',
   data() {
     return {
-      movies: '' //究竟係用[]定''？因為我兩樣都試過，但好似唔係太大分別
+      movies: [],
     
     }
   },
 
   created: function () { 
-    this.mounted();
+    this.loadData()
   },
 
   methods: {
-    mounted() {
+    loadData() {
       axios.get(BASE_URL + API_URL)
-        .then(response => this.movies = response.data);
-    },
+        .then(response => this.movies = response.data.results);
+    }
   }
-
 }
 
 </script>
