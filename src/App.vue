@@ -1,26 +1,30 @@
 <template>
-  <nav>
-    <a href="">Films</a>
-    <a href="">TV programmes</a>
-    <a href="">Watch</a>
-    <a href="">Sign in </a>
-  </nav>
-
-  <movie-detail />
+<div>
+  <navBar />
+  <movieDetail />
 
   <h2>Popular movies</h2>
 
-  <div>
-    <li v-for="movie of movies" :key="movie.id"> {{movie.title}}
-      <a href="www.google.com"><img v-bind:src="'https://image.tmdb.org/t/p/w500' + movie.poster_path "  alt="img"></a>
-    </li>
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col">
+        <li v-for="movie of movies" :key="movie.id">
+          <button @click="showDetail = !showDetail">
+            <img  v-bind:src="'https://image.tmdb.org/t/p/w500' + movie.poster_path "  v-bind:alt="movie.title" class="img-responsive">
+          </button>
+          <h3 v-show="showDetail">{{ movie.title }}</h3>
+          <p v-show="showDetail">{{ movie.overview }}</p>
+        </li>
+      </div>
+    </div>
   </div>
-
+</div>
 
 </template>
 
 <script>
 import axios from 'axios';
+import navBar from './components/navBar.vue';
 import movieDetail from './components/movieDetail.vue';
 
 const API_KEY = "api_key=3e21d0634b298df121ea5353d494ab2b";
@@ -28,14 +32,16 @@ const BASE_URL = 'https://api.themoviedb.org/3';
 const API_URL = '/discover/movie?sort_by=popularity.desc&' + API_KEY;
 
 export default {
-  components: { movieDetail },
   name: 'App',
-  compoents: {
+  components: {
     movieDetail,
+    navBar,
+
   },
   data() {
     return {
       movies: [],
+      showDetail: false,
 
     }
   },
