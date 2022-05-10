@@ -8,13 +8,13 @@
   <div class="container">
     <div class="row align-items-center">
       <div class="col">
-        <li v-for="movie of movies" :key="movie.id">
-          <button @click="showDetail = !showDetail">
+        <ul>
+          <li v-for="movie of movies" :key="movie.id" @click="showDetail = !showDetail">
             <img  v-bind:src="'https://image.tmdb.org/t/p/w500' + movie.poster_path "  v-bind:alt="movie.title" class="img-responsive">
-          </button>
-          <h3 v-show="showDetail">{{ movie.title }}</h3>
-          <p v-show="showDetail">{{ movie.overview }}</p>
-        </li>
+            <h3 v-show="showDetail">{{ movie.title }}</h3>
+            <p v-show="showDetail">{{ movie.overview }}</p>
+          </li>
+        </ul>
       </div>
     </div>
   </div>
