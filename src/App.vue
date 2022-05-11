@@ -53,7 +53,7 @@ export default {
     let test0 = { moviesDetail: [ false ] }
     console.log('test0 result')
     console.log(!test0.moviesDetail)
-    // I defined an object test0 with moviesDetail array with one element 'true'
+    // I defined an object test1 with moviesDetail array with one element 'true'
     let test1 = { moviesDetail: [ true ] }
     console.log('test1 result')
     console.log(!test1.moviesDetail)
