@@ -46,7 +46,18 @@ export default {
     }
   },
 
-  created: function () { 
+  created: function () {
+    // The Following Example is just similar to your one.
+    // I defined an object test0 with moviesDetail array with one element 'false'
+    // Please open a debug console to have a look. You can right the page and select "inspect"
+    let test0 = { moviesDetail: [ false ] }
+    console.log('test0 result')
+    console.log(!test0.moviesDetail)
+    // I defined an object test0 with moviesDetail array with one element 'true'
+    let test1 = { moviesDetail: [ true ] }
+    console.log('test1 result')
+    console.log(!test1.moviesDetail)
+
     this.loadData()
   },
 
