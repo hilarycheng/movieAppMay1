@@ -49,7 +49,7 @@ export default {
   created: function () {
     // The Following Example is just similar to your one.
     // I defined an object test0 with moviesDetail array with one element 'false'
-    // Please open a debug console to have a look. You can right the page and select "inspect"
+    // Please open a debug console to have a look. You can right click the page and select "inspect"
     let test0 = { moviesDetail: [ false ] }
     console.log('test0 result')
     console.log(!test0.moviesDetail)
